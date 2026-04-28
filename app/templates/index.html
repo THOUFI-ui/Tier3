@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Flask App Connected to MySQL</h1>
+
+<ul>
+    {% for row in data %}
+        <li>{{ row.message }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
