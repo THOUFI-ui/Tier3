@@ -1,8 +1,13 @@
+import os
+
 class Config:
-    SECRET_KEY = "super-secret-key"
+    MYSQL_HOST = os.environ.get("MYSQL_HOST")
+    MYSQL_USER = os.environ.get("MYSQL_USER")
+    MYSQL_PASSWORD = os.environ.get("MYSQL_PASSWORD")
+    MYSQL_DB = os.environ.get("MYSQL_DB")
 
     SQLALCHEMY_DATABASE_URI = (
-        "mysql+pymysql://root:rootpassword@mysql:3306/mydb"
+        f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:3306/{MYSQL_DB}"
     )
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
